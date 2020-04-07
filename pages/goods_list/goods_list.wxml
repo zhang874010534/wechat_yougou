@@ -1,0 +1,29 @@
+<!-- pages/goods_list/goods_list.wxml -->
+<view>
+  <SearchInput></SearchInput>
+  <!-- 导航 -->
+  <view class="tab">
+    <view bindtap="changeTabIndex" data-index="{{index}}" class="tab_item {{index===tabIndex?'active':''}}" wx:for="{{tabs}}" wx:key="index">
+      {{item.name}}
+    </view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods_list" wx:if="{{tabIndex===0}}">
+    <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="index"
+    url="/pages/goods_detail/goods_detail?id={{item.goods_id}}"
+    >
+      <view class="goods_image">
+        <image mode="widthFix" src="{{item.goods_small_logo}}" />
+      </view>
+      <!-- 右边信息 -->
+      <view class="right_wrap">
+        <view class="name">{{item.goods_name}}</view>
+        <view class="price">￥{{item.goods_price}}</view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 销量 -->
+  <view wx:elif="{{tabIndex===1}}">1</view>
+  <!-- 价格 -->
+  <view wx:elif="{{tabIndex===2}}">2</view>
+</view>

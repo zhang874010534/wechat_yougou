@@ -1,2 +1,38 @@
-<!--pages/category/category.wxml-->
-<text>pages/category/category.wxml</text>
+<!-- pages/category/category.wxml -->
+<view class="cate">
+  <SearchInput></SearchInput>
+  <view class="cate_wrap">
+    <!-- 左侧菜单 -->
+    <view class="cate_left">
+      <scroll-view scroll-y="{{true}}">
+        <view 
+        bindtap="changeIndex" data-index="{{index}}"
+        class="left_item {{index===currentIndex?'active':''}}" wx:for="{{leftData}}" wx:key="index">
+          {{item}}
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 右侧商品内容 -->
+    <view class="cate_right">
+      <scroll-view scroll-y="{{true}}" scroll-top="{{scrollTop}}">
+        <view class="goods_item" wx:for="{{rightData}}" wx:key="index1" wx:for-index="index1" wx:for-item="item1">
+          <!-- 标题 -->
+          <view class="goods_title">
+            <view class="diagonal">/</view>
+            <view>{{item1.cat_name}}</view>
+            <view class="diagonal">/</view>
+          </view>
+          <!-- 单个商品 -->
+          <view class="goods_list">
+            <navigator 
+            url="/pages/goods_list/goods_list?cid={{item2.cat_id}}"
+            wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="index2">
+              <image mode="widthFix" src="{{item2.cat_icon}}" />
+              <view style="text-align:center">{{item2.cat_name}}</view>
+            </navigator>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

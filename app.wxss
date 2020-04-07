@@ -3,3 +3,6 @@ page{
   --themeColor:#eb4450;
   font-size: 28rpx;
 }
+image{
+  width: 100%;
+}

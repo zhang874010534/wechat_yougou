@@ -16,6 +16,25 @@
 
 	<!-- 导航 -->
 	<view class="index_nav">
-		<navigator></navigator>
+		<navigator wx:for="{{catesList}}" wx:key="index">
+			<image src="{{item.image_src}}" mode="widthFix"></image>
+		</navigator>
+	</view>
+
+	<!-- 楼层 -->
+	<view class="index_floor">
+		<view class="floor_item" wx:for="{{floorList}}" wx:key="index1" wx:for-index="index1" wx:for-item="item1">
+			<!--标题 -->
+			<view class="floor_title">
+				<image mode="widthFix" src="{{item1.floor_title.image_src}}"></image>
+			</view>
+			<!-- 5张图片 -->
+			<view class="floor_image">
+				<navigator wx:for="{{item1.product_list}}" wx:key="index2"
+				wx:for-item="item2" wx:for-index="index2"
+				><image class="" src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}" lazy-load="false" binderror="" bindload="">
+				</image></navigator>
+			</view>
+		</view>
 	</view>
 </view>

@@ -2,13 +2,14 @@ import {
   request
 } from "../../request/request.js"
 Page({
-
+  
   /**
    * 页面的初始数据
    */
   data: {
     swiperList: [],
-    catesList:[]
+    catesList:[],
+    floorList:[]
   },
   // 获取轮播图数据
   getSwiperList() {
@@ -21,12 +22,26 @@ Page({
         })
       })
   },
-  getCateList(){
+  // getCateList(){
+  //   wx.request({
+  //     url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',
+  //     success:(res)=>{
+  //       this.setData({
+  //         catesList:res.data.message
+  //       })
+  //     }
+  //   })
+  // },
+  async getCateList(){
+    let message=await request({url:"https://api-hmugo-web.itheima.net/api/public/v1/home/catitems"})
+    console.log(message)
+  },
+  getFloorList(){
     wx.request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',
       success:(res)=>{
         this.setData({
-          catesList:res.data.message
+          floorList:res.data.message
         })
       }
     })
@@ -37,6 +52,7 @@ Page({
   onLoad: function (options) {
     this.getSwiperList()
     this.getCateList()
+    this.getFloorList()
   },
 
   /**

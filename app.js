@@ -1,5 +1,7 @@
 App({
-
+  // 公共接口路劲
+  
+  baseUrl:"https://api-hmugo-web.itheima.net/api/public/v1/",
   /**
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
