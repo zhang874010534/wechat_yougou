@@ -12,13 +12,43 @@ Page({
       url: getApp().baseUrl + 'goods/detail',
       data: { goods_id: id },
       success: (result) => {
-        console.log(result)
         this.setData({
           detailObj: result.data.message
         })
       },
       fail: () => { },
       complete: () => { }
+    });
+  },
+
+  previewImage(e) {
+    let urls = this.data.detailObj.pics.map(v => v.pics_mid)
+    wx.previewImage({
+      current: e.currentTarget.dataset.current,
+      urls: urls,
+      success: (result) => {
+
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+  },
+  // 加入购物车
+  addCart() {
+    let cart = wx.getStorageSync('cart') || [];
+    let index = cart.findIndex(v => v.goods_id === this.data.detailObj.goods_id)
+    if (index === -1) {
+      this.data.detailObj.num=1
+      cart.push(this.data.detailObj)
+    } else {
+      cart[index].num++
+    }
+    wx.setStorageSync("cart", cart);
+    wx.showToast({
+      title: '加入成功',
+      icon: 'success',
+      duration: 1500,
+      mask: true,
     });
   },
   /**

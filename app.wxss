@@ -6,3 +6,5 @@ page{
 image{
   width: 100%;
 }
+
+@import "/styles/icon.wxss"

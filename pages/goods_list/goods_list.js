@@ -35,7 +35,9 @@ Page({
   },
 
   getGoodsList() {
-    wx.showLoading();
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().baseUrl + 'goods/search',
       data: this.queryParam,
