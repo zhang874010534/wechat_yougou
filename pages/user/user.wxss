@@ -1,1 +1,38 @@
-/* pages/user/user.wxss */
+Page {
+  background-color: #edece8;
+}
+
+.avatar_wrap {
+  position: relative;
+  width: 750rpx;
+  height: 480rpx;
+}
+
+.avatar_wrap .avatar_bgi {
+  filter: blur(5px);
+}
+
+.avatar_wrap .avatar_name {
+  width: 150rpx;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.avatar_wrap .avatar_name image {
+  border-radius: 50%;
+  margin-bottom: 50rpx;
+}
+
+.avatar_wrap .avatar_name .name {
+  color: #fff;
+}
+
+.avatar_wrap .btnClass {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+}

@@ -1,2 +1,13 @@
-<!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<!-- pages/user/user.wxml -->
+<view class="avatar_wrap">
+  <view class="bgi_avatar" wx:if="{{userInfo}}">
+    <!-- 背景图 -->
+    <image class="avatar_bgi" src="{{userInfo.avatarUrl}}"></image>
+    <view class="avatar_name">
+      <!-- 头像 -->
+      <image src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+      <view class="name">{{userInfo.nickName}}</view>
+    </view>
+  </view>
+  <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btnClass">按钮</button>
+</view>

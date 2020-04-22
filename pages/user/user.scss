@@ -1,0 +1,32 @@
+Page{
+  background-color: #edece8;
+}
+.avatar_wrap {
+  position: relative;
+  width: 750rpx;
+  height: 480rpx;
+  .avatar_bgi {
+    filter: blur(5px);
+  }
+  .avatar_name {
+    width: 150rpx;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform:translateX(-50%);
+    text-align: center;
+    image{
+      border-radius: 50%;
+      margin-bottom: 50rpx;
+    }
+    .name{
+      color: #fff;
+    }
+  }
+  .btnClass{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform:translateX(-50%);
+  }
+}
